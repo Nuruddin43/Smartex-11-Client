@@ -2,7 +2,10 @@ import React from "react";
 
 const Section2 = () => {
   return (
-    <div className="d-flex gy-4 mt-5 mx-5 text-center row">
+    <div
+      className="d-flex gy-4 mt-5 mx-5 text-center row"
+      style={{ fontFamily: "revert" }}
+    >
       <div className="border border-2 p-5 col-sm-12 col-md-6 col-lg-4">
         <h3>🌐</h3>
         <h4>WORLDWIDE DELIVERY</h4>
