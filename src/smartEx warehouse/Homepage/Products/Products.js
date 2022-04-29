@@ -1,5 +1,6 @@
 import React from "react";
 import Product from "../Product/Product";
+import "./Products.css";
 
 const Products = () => {
   const products = [
@@ -74,10 +75,12 @@ const Products = () => {
   //   }, []);
   return (
     <div>
-      <h2>Products: {products.length}</h2>
-      {products.map((product) => (
-        <Product key={product.id} product={product}></Product>
-      ))}
+      <h2 className="text-center">Our Products</h2>
+      <div className="products-container">
+        {products.map((product) => (
+          <Product key={product.id} product={product}></Product>
+        ))}
+      </div>
     </div>
   );
 };
