@@ -74,9 +74,8 @@ const Products = () => {
   //       .then((data) => setProducts(data));
   //   }, []);
   return (
-    <div>
-      <h2 className="text-center">Our Products</h2>
-      <div className="products-container">
+    <div id="products" className="mt-5">
+      <div className="products-container mx-5">
         {products.map((product) => (
           <Product key={product.id} product={product}></Product>
         ))}

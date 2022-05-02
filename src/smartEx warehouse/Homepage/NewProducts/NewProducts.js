@@ -17,9 +17,9 @@ const NewProducts = () => {
     { id: 6, price: 150, name: "SMARTWATCH W32", img: NewProduct6 },
   ];
   return (
-    <div className="container">
-      <h2 className="text-center"> NEW PRODUCTS</h2>
-      <div className="row ms-5">
+    <div id="new" className="container" style={{ fontFamily: "sans-serif" }}>
+      <h2 className="text-center text-white w-25 mx-auto">NEW PRODUCTS</h2>
+      <div className="row">
         {newProducts.map((newProduct) => (
           <NewProduct key={newProduct.id} newProduct={newProduct}></NewProduct>
         ))}

@@ -3,7 +3,7 @@ import React from "react";
 const Section2 = () => {
   return (
     <div
-      className="d-flex gy-4 mt-5 mx-5 text-center row"
+      className="d-flex mt-5 mx-5 text-center row bg-white"
       style={{ fontFamily: "revert" }}
     >
       <div className="border border-2 p-5 col-sm-12 col-md-6 col-lg-4">

@@ -1,30 +1,40 @@
 import React, { useRef } from "react";
 import { Button, Form } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
-import "./Login.css";
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const SignUp = () => {
+  const userName = useRef("");
   const emailRef = useRef("");
   const passwordRef = useRef("");
   const navigate = useNavigate();
 
-  const handleLogin = (event) => {
+  const handleSignUp = (event) => {
     event.preventDefault();
+    const username = userName.current.value;
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
   };
 
-  const navigateSignUP = (event) => {
-    navigate("/signup");
+  const navigateLogin = (event) => {
+    navigate("/login");
   };
   return (
     <div className="container w-50 mx-auto mt-4 row">
       <div className="">
         <Form
-          onSubmit={handleLogin}
+          onSubmit={handleSignUp}
           className="rounded p-5"
           style={{ backgroundColor: "#e7eedc" }}
         >
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>User Name</Form.Label>
+            <Form.Control
+              ref={userName}
+              type="text"
+              placeholder="User Name"
+              required
+            />
+          </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control
@@ -58,8 +68,13 @@ const Login = () => {
           >
             Login
           </Button>
-          <Button onClick={navigateSignUP} variant="danger" type="submit">
-            Create an new account
+          <Button
+            onClick={navigateLogin}
+            style={{ backgroundColor: "#F08B04" }}
+            variant="primary"
+            type="submit"
+          >
+            Already have an account
           </Button>
         </Form>
       </div>
@@ -67,4 +82,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
