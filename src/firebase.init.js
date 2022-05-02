@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCCfK1-uu_D1J7P-9AJmUVY4jZWLiYpnJA",
-  authDomain: "smartex-warehouse.firebaseapp.com",
-  projectId: "smartex-warehouse",
-  storageBucket: "smartex-warehouse.appspot.com",
-  messagingSenderId: "932960773416",
-  appId: "1:932960773416:web:2f0ee634a58b63aebadc1d",
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
 };
 
 // Initialize Firebase
