@@ -1,9 +1,18 @@
+// import { sendPasswordResetEmail } from "firebase/auth";
 import React, { useRef } from "react";
 import { Button, Form } from "react-bootstrap";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
 import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import auth from "../../../firebase.init";
-import SocialSiteLogin from "../SocialSiteLogin/SocialSiteLogin";
+import Loading from "../../Shared/Loading/Loading";
+import SocialLogin from "../SocialLogin/SocialLogin";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import "./Login.css";
 
 const Login = () => {
@@ -20,6 +29,19 @@ const Login = () => {
   if (user) {
     navigate(from, { replace: true });
   }
+  let errorElement;
+  if (error) {
+    errorElement = (
+      <div>
+        <p className="text-danger">Error: {error?.message}</p>
+      </div>
+    );
+  }
+  const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+
+  if (loading || sending) {
+    return <Loading></Loading>;
+  }
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -29,8 +51,18 @@ const Login = () => {
     signInWithEmailAndPassword(email, password);
   };
 
-  const navigateSignUP = (event) => {
+  const navigateSignUp = (event) => {
     navigate("/signup");
+  };
+
+  const resetPassword = async () => {
+    const email = emailRef.current.value;
+    if (email) {
+      await sendPasswordResetEmail(email);
+      toast("Sent email");
+    } else {
+      toast("please enter your email address");
+    }
   };
   return (
     <div className="container w-50 mx-auto mt-4 row">
@@ -59,9 +91,7 @@ const Login = () => {
               required
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Check me out" />
-          </Form.Group>
+
           <Button
             style={{
               marginRight: "10px",
@@ -73,10 +103,21 @@ const Login = () => {
           >
             Login
           </Button>
-          <Button onClick={navigateSignUP} variant="danger" type="submit">
+          <Button onClick={navigateSignUp} variant="danger" type="submit">
             Create an new account
           </Button>
-          <SocialSiteLogin></SocialSiteLogin>
+          {errorElement}
+          <p>
+            Forget Password?
+            <button
+              className="btn btn-link text-primary pe-auto text-decoration-none"
+              onClick={resetPassword}
+            >
+              Reset Pasword
+            </button>
+          </p>
+          <SocialLogin></SocialLogin>
+          <ToastContainer />
         </Form>
       </div>
     </div>

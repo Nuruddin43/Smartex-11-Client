@@ -2,23 +2,34 @@ import React from "react";
 import google from "../../../images/google-symbol.png";
 import github from "../../../images/icons8-github-500.png";
 import facebook from "../../../images/icons8-facebook-500.png";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import {
+  useSignInWithGithub,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import { useNavigate } from "react-router-dom";
+import Loading from "../../Shared/Loading/Loading";
 
-const SocialSiteLogin = () => {
+const SocialLogin = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
   const navigate = useNavigate();
+  const [signInWithGithub, user1, loading1, error1] = useSignInWithGithub(auth);
   let errorElement;
-  if (error) {
+
+  if (loading || loading1) {
+    return <Loading></Loading>;
+  }
+  if (error || error1) {
     errorElement = (
       <div>
-        <p className="text-danger">Error: {error.message}</p>
+        <p className="text-danger">
+          Error: {error?.message} {error1?.message}
+        </p>
       </div>
     );
   }
 
-  if (user) {
+  if (user || user1) {
     navigate("/home");
   }
   return (
@@ -39,6 +50,7 @@ const SocialSiteLogin = () => {
           <span className="px-1"> Google Sign In</span>
         </button>
         <button
+          onClick={() => signInWithGithub()}
           className="btn btn-dark text-white border w-50 d-block mx-auto mb-2"
           style={{ backgroundColor: "black" }}
         >
@@ -61,4 +73,4 @@ const SocialSiteLogin = () => {
   );
 };
 
-export default SocialSiteLogin;
+export default SocialLogin;
