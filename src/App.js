@@ -9,6 +9,8 @@ import ProductDetail from "./smartEx warehouse/ProductDetail/ProductDetail";
 import NotFound from "./smartEx warehouse/Shared/NotFound/NotFound";
 import Login from "./smartEx warehouse/Login/Login/Login";
 import SignUp from "./smartEx warehouse/Login/SignUp/SignUp";
+import ProceedCheckout from "./smartEx warehouse/ProceedCheckout/ProceedCheckout";
+import ProtectedRoute from "./smartEx warehouse/Login/ProtectedRoute/ProtectedRoute";
 
 function App() {
   return (
@@ -25,6 +27,14 @@ function App() {
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
+        <Route
+          path="proceedcheckout"
+          element={
+            <ProtectedRoute>
+              <ProceedCheckout></ProceedCheckout>
+            </ProtectedRoute>
+          }
+        ></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
 

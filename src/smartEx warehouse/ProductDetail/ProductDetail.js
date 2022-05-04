@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const ProductDetail = () => {
   const { productName } = useParams();
@@ -19,15 +19,18 @@ const ProductDetail = () => {
       >
         Delivery
       </Button>
-      <Button
-        style={{
-          backgroundVColor: " #ff4e00",
-          backgroundImage: "linear-gradient(315deg, #ff4e00 0%, #ec9f05 74%)",
-          border: "none",
-        }}
-      >
-        Proceed Checkout
-      </Button>
+
+      <Link to="/proceedcheckout">
+        <Button
+          style={{
+            backgroundVColor: " #ff4e00",
+            backgroundImage: "linear-gradient(315deg, #ff4e00 0%, #ec9f05 74%)",
+            border: "none",
+          }}
+        >
+          Proceed Checkout
+        </Button>
+      </Link>
     </div>
   );
 };

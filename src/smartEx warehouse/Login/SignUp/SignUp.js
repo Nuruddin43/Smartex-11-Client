@@ -1,23 +1,33 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import auth from "../../../firebase.init";
+import SocialSiteLogin from "../SocialSiteLogin/SocialSiteLogin";
 
 const SignUp = () => {
-  const userName = useRef("");
-  const emailRef = useRef("");
-  const passwordRef = useRef("");
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+
   const navigate = useNavigate();
 
   const handleSignUp = (event) => {
     event.preventDefault();
-    const username = userName.current.value;
-    const email = emailRef.current.value;
-    const password = passwordRef.current.value;
+    const name = event.target.name.value;
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    console.log(name, email, password);
+
+    createUserWithEmailAndPassword(name, email, password);
   };
 
-  const navigateLogin = (event) => {
+  const navigateLogin = () => {
     navigate("/login");
   };
+
+  if (user) {
+    navigate("/home");
+  }
   return (
     <div className="container w-50 mx-auto mt-4 row">
       <div className="">
@@ -26,29 +36,29 @@ const SignUp = () => {
           className="rounded p-5"
           style={{ backgroundColor: "#e7eedc" }}
         >
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3">
             <Form.Label>User Name</Form.Label>
             <Form.Control
-              ref={userName}
+              name="name"
               type="text"
               placeholder="User Name"
               required
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3">
             <Form.Label>Email address</Form.Label>
             <Form.Control
-              ref={emailRef}
+              name="email"
               type="email"
               placeholder="Enter email"
               required
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Group className="mb-3">
             <Form.Label>Password</Form.Label>
             <Form.Control
-              ref={passwordRef}
+              name="password"
               type="password"
               placeholder="Password"
               required
@@ -66,7 +76,7 @@ const SignUp = () => {
             variant="primary"
             type="submit"
           >
-            Login
+            Sign Up
           </Button>
           <Button
             onClick={navigateLogin}
@@ -76,6 +86,7 @@ const SignUp = () => {
           >
             Already have an account
           </Button>
+          <SocialSiteLogin></SocialSiteLogin>
         </Form>
       </div>
     </div>
