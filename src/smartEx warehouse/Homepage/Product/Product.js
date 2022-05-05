@@ -4,11 +4,12 @@ import { useNavigate } from "react-router-dom";
 import "./Product.css";
 
 const Product = ({ product }) => {
-  const { name, img, description, price, quantity, supplierName } = product;
+  const { _id, name, img, description, price, Quantity, SupplierName } =
+    product;
 
   const navigate = useNavigate();
-  const productDetailNavigate = (name) => {
-    navigate(`/product/${name}`);
+  const productDetailNavigate = (id) => {
+    navigate(`/product/${id}`);
   };
 
   return (
@@ -22,10 +23,10 @@ const Product = ({ product }) => {
       <p>
         <small>{description}</small>
       </p>
-      <p>Quantity: {quantity}</p>
-      <p>Supplier Name: {supplierName}</p>
+      <p>Quantity: {Quantity}</p>
+      <p>Supplier Name: {SupplierName}</p>
       <Button
-        onClick={() => productDetailNavigate(name)}
+        onClick={() => productDetailNavigate(_id)}
         style={{
           backgroundVColor: " #ff4e00",
           backgroundImage: "linear-gradient(315deg, #ff4e00 0%, #ec9f05 74%)",

@@ -18,8 +18,7 @@ const Header = () => {
         collapseOnSelect
         expand="lg"
         style={{
-          backgroundColor: " #0cbaba",
-          backgroundImage: "linear-gradient(315deg, #0cbaba 0%, #380036 74%)",
+          backgroundColor: "#2C355B",
           height: "80px",
           fontFamily: "serif",
         }}
@@ -33,6 +32,7 @@ const Header = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto fw-bold">
+              <Nav.Link href="home">Home</Nav.Link>
               <Nav.Link href="home#products">Products</Nav.Link>
               <Nav.Link href="home#new">New</Nav.Link>
               <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
@@ -47,6 +47,18 @@ const Header = () => {
               <Nav.Link as={Link} to="blogs">
                 Blogs
               </Nav.Link>
+
+              {user && (
+                <>
+                  <Nav.Link as={Link} to="addproduct">
+                    Add Product
+                  </Nav.Link>
+                  <Nav.Link as={Link} to="manage">
+                    Manage Inv
+                  </Nav.Link>
+                </>
+              )}
+
               {user ? (
                 <Button
                   className="rounded-pill"
@@ -69,7 +81,7 @@ const Header = () => {
                         "linear-gradient(315deg, #0cbaba 0%, #380036 74%)",
                     }}
                   >
-                    Login
+                    Sign In
                   </Button>
                 </Nav.Link>
               )}

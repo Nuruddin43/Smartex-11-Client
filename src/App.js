@@ -11,16 +11,32 @@ import Login from "./smartEx warehouse/Login/Login/Login";
 import SignUp from "./smartEx warehouse/Login/SignUp/SignUp";
 import ProceedCheckout from "./smartEx warehouse/ProceedCheckout/ProceedCheckout";
 import ProtectedRoute from "./smartEx warehouse/Login/ProtectedRoute/ProtectedRoute";
+import AddProduct from "./smartEx warehouse/AddProduct/AddProduct";
+import ManageInventories from "./smartEx warehouse/ManageInventories/ManageInventories";
 
 function App() {
   return (
     <div>
       <Header></Header>
       <Routes>
-        <Route path="/" element={<Home></Home>}></Route>
-        <Route path="/home" element={<Home></Home>}></Route>
         <Route
-          path="/product/:productName/"
+          path="/"
+          element={
+            <ProtectedRoute>
+              <Home></Home>
+            </ProtectedRoute>
+          }
+        ></Route>
+        <Route
+          path="/home"
+          element={
+            <ProtectedRoute>
+              <Home></Home>
+            </ProtectedRoute>
+          }
+        ></Route>
+        <Route
+          path="/product/:productId"
           element={<ProductDetail></ProductDetail>}
         ></Route>
 
@@ -28,10 +44,26 @@ function App() {
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
         <Route
-          path="proceedcheckout"
+          path="/proceedcheckout"
           element={
             <ProtectedRoute>
               <ProceedCheckout></ProceedCheckout>
+            </ProtectedRoute>
+          }
+        ></Route>
+        <Route
+          path="/addproduct"
+          element={
+            <ProtectedRoute>
+              <AddProduct></AddProduct>
+            </ProtectedRoute>
+          }
+        ></Route>
+        <Route
+          path="/manage"
+          element={
+            <ProtectedRoute>
+              <ManageInventories></ManageInventories>
             </ProtectedRoute>
           }
         ></Route>
