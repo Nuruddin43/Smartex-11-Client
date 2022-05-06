@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
+import useProductDetail from "../../hooks/useProductDetail";
 
 const ProductDetail = () => {
   const { productId } = useParams();
 
-  const [product, setProduct] = useState({});
-  useEffect(() => {
-    const url = `http://localhost:5000/product/${productId}`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setProduct(data));
-  }, []);
+  const [product] = useProductDetail(productId);
 
   return (
     <div className="product shadow p-3 mb-5 bg-white rounded">
@@ -43,7 +38,7 @@ const ProductDetail = () => {
               Delivery
             </Button>
 
-            <Link to="/proceedcheckout">
+            <Link to={`/proceedcheckout/${productId}`}>
               <Button
                 style={{
                   backgroundVColor: " #ff4e00",

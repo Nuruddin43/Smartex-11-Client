@@ -15,6 +15,7 @@ import AddProduct from "./smartEx warehouse/AddProduct/AddProduct";
 import ManageInventories from "./smartEx warehouse/ManageInventories/ManageInventories";
 import Allitem from "./smartEx warehouse/Allitem/Allitem";
 import MyItem from "./smartEx warehouse/MyItem/MyItem";
+import Order from "./smartEx warehouse/Order/Order";
 
 function App() {
   return (
@@ -48,7 +49,7 @@ function App() {
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
         <Route
-          path="/proceedcheckout"
+          path="/proceedcheckout/:productId"
           element={
             <ProtectedRoute>
               <ProceedCheckout></ProceedCheckout>
@@ -68,6 +69,14 @@ function App() {
           element={
             <ProtectedRoute>
               <ManageInventories></ManageInventories>
+            </ProtectedRoute>
+          }
+        ></Route>
+        <Route
+          path="/orders"
+          element={
+            <ProtectedRoute>
+              <Order></Order>
             </ProtectedRoute>
           }
         ></Route>
