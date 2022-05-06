@@ -9,16 +9,62 @@ import NewProduct from "../NewProduct/NewProduct";
 
 const NewProducts = () => {
   const newProducts = [
-    { id: 1, price: 200, name: "AMAZEFIT 3", img: NewProduct1 },
-    { id: 2, price: 140, name: "APPLE WATCH 2", img: NewProduct2 },
-    { id: 3, price: 110, name: "DDX METAL", img: NewProduct3 },
-    { id: 4, price: 200, name: "HAELOU LS04", img: NewProduct4 },
-    { id: 5, price: 350, name: "SMARTWATCH W46", img: NewProduct5 },
-    { id: 6, price: 150, name: "SMARTWATCH W32", img: NewProduct6 },
+    {
+      id: 1,
+      price: 200,
+      discountPrice: 180,
+      name: "AMAZEFIT 3",
+      img: NewProduct1,
+    },
+    {
+      id: 2,
+      price: 140,
+      discountPrice: 120,
+      name: "APPLE WATCH 2",
+      img: NewProduct2,
+    },
+    {
+      id: 3,
+      price: 110,
+      discountPrice: 105,
+      name: "DDX METAL",
+      img: NewProduct3,
+    },
+    {
+      id: 4,
+      price: 200,
+      discountPrice: 160,
+      name: "HAELOU LS04",
+      img: NewProduct4,
+    },
+    {
+      id: 5,
+      price: 350,
+      discountPrice: 290,
+      name: "SMARTWATCH W46",
+      img: NewProduct5,
+    },
+    {
+      id: 6,
+      price: 150,
+      discountPrice: 125,
+      name: "SMARTWATCH W32",
+      img: NewProduct6,
+    },
   ];
   return (
     <div id="new" className="container" style={{ fontFamily: "sans-serif" }}>
-      <h2 className="text-center text-white w-25 mx-auto">NEW PRODUCTS</h2>
+      <button
+        className="btn btn-danger rounded-pill "
+        style={{
+          position: "absolute",
+          marginBottom: "-50px",
+          backgroundImage: " linear-gradient(315deg, #6b0f1a 0%, #b91372 74%)",
+        }}
+      >
+        15% Discount Offers
+      </button>
+      <h2 className="text-center text-white w-25 mx-auto">LATEST PRODUCTS</h2>
       <div className="row">
         {newProducts.map((newProduct) => (
           <NewProduct key={newProduct.id} newProduct={newProduct}></NewProduct>

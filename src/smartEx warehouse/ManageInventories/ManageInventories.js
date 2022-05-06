@@ -21,7 +21,7 @@ const ManageInventories = () => {
     }
   };
   return (
-    <div className="w-50 mx-auto bg-light mt-5 rounded p-3">
+    <div className="w-75 mx-auto bg-light mt-5 rounded p-2">
       <h2 className="text-center">Manage Your Services</h2>
 
       {products.map((product) => (
