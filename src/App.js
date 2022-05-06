@@ -14,6 +14,7 @@ import ProtectedRoute from "./smartEx warehouse/Login/ProtectedRoute/ProtectedRo
 import AddProduct from "./smartEx warehouse/AddProduct/AddProduct";
 import ManageInventories from "./smartEx warehouse/ManageInventories/ManageInventories";
 import Allitem from "./smartEx warehouse/Allitem/Allitem";
+import MyItem from "./smartEx warehouse/MyItem/MyItem";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
           element={<ProductDetail></ProductDetail>}
         ></Route>
         <Route path="/allitem" element={<Allitem></Allitem>}></Route>
+        <Route path="/myitem" element={<MyItem></MyItem>}></Route>
 
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>

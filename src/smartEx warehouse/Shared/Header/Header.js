@@ -35,13 +35,13 @@ const Header = () => {
               <Nav.Link href="home">Home</Nav.Link>
               <Nav.Link href="home#products">Products</Nav.Link>
               <Nav.Link href="home#new">New</Nav.Link>
-              <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+              {/* <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">
                   Manage Item
                 </NavDropdown.Item>
                 <NavDropdown.Item href="/allitem">All Item</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">My Item</NavDropdown.Item>
-              </NavDropdown>
+              </NavDropdown> */}
             </Nav>
             <Nav>
               <Nav.Link as={Link} to="blogs">
@@ -51,11 +51,25 @@ const Header = () => {
               {user && (
                 <>
                   <Nav.Link as={Link} to="addproduct">
-                    Add Product
+                    Add Item
                   </Nav.Link>
-                  <Nav.Link as={Link} to="manage">
+                  {/* <Nav.Link as={Link} to="manage">
                     Manage Inv
-                  </Nav.Link>
+                  </Nav.Link> */}
+                  <NavDropdown
+                    title="Manage Inventories"
+                    id="collasible-nav-dropdown"
+                  >
+                    <NavDropdown.Item as={Link} to="manage">
+                      Manage Item
+                    </NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="allitem">
+                      All Item
+                    </NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="myitem">
+                      My Item
+                    </NavDropdown.Item>
+                  </NavDropdown>
                 </>
               )}
 

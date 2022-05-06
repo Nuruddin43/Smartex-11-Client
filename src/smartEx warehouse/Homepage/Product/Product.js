@@ -27,6 +27,7 @@ const Product = ({ product }) => {
       <p>Supplier Name: {SupplierName}</p>
       <Button
         onClick={() => productDetailNavigate(_id)}
+        className="mt-auto"
         style={{
           backgroundVColor: " #ff4e00",
           backgroundImage: "linear-gradient(315deg, #ff4e00 0%, #ec9f05 74%)",
