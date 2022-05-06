@@ -39,7 +39,7 @@ const Header = () => {
                 <NavDropdown.Item href="#action/3.1">
                   Manage Item
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">All Item</NavDropdown.Item>
+                <NavDropdown.Item href="/allitem">All Item</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">My Item</NavDropdown.Item>
               </NavDropdown>
             </Nav>

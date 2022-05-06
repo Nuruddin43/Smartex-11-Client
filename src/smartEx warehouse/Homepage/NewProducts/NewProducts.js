@@ -64,7 +64,9 @@ const NewProducts = () => {
       >
         15% Discount Offers
       </button>
-      <h2 className="text-center text-white w-25 mx-auto">LATEST PRODUCTS</h2>
+      <h2 className="text-center text-white w-25 mx-auto mt-5">
+        LATEST PRODUCTS
+      </h2>
       <div className="row">
         {newProducts.map((newProduct) => (
           <NewProduct key={newProduct.id} newProduct={newProduct}></NewProduct>
