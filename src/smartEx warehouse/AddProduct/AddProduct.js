@@ -25,7 +25,10 @@ const AddProduct = () => {
       style={{ backgroundColor: "#E7EEDC" }}
     >
       <h2 className=" text-center border ">Add a Product</h2>
-      <form className="d-flex flex-column" onSubmit={handleSubmit(onSubmit)}>
+      <form
+        className="d-flex flex-column p-4"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <input
           className="mb-2"
           placeholder="Name"
