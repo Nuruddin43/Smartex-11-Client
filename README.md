@@ -1,4 +1,4 @@
-# SmartEx 
+# SmartEx Warhouse
 
 Live link: (https://smartex-warehouse-d71ac.web.app/login).
 
