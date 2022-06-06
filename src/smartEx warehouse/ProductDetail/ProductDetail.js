@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import useProductDetail from "../../hooks/useProductDetail";
@@ -24,15 +23,39 @@ const ProductDetail = () => {
 
             <h5>${product.price}</h5>
             <Card.Text>{product.description}</Card.Text>
-            <p> Quantity: {product.Quantity}</p>
+            <p className="fw-bold">
+              Quantity: {product.Quantity} Sold: {product.Sold}
+            </p>
             <p>Supplier Name: {product.SupplierName}</p>
+            <input
+              placeholder="Restock"
+              style={{ width: "90px" }}
+              type="number"
+              name=""
+              id=""
+            />
+            <br />
             <Button
               style={{
-                backgroundVColor: " #ff4e00",
+                backgroundColor: " #ff4e00",
                 backgroundImage:
                   "linear-gradient(315deg, #ff4e00 0%, #ec9f05 74%)",
                 border: "none",
                 marginRight: "10px",
+                marginTop: "10px",
+              }}
+            >
+              Restock
+            </Button>
+
+            <Button
+              style={{
+                backgroundColor: " #ff4e00",
+                backgroundImage:
+                  "linear-gradient(315deg, #ff4e00 0%, #ec9f05 74%)",
+                border: "none",
+                marginRight: "10px",
+                marginTop: "10px",
               }}
             >
               Delivery
@@ -45,6 +68,7 @@ const ProductDetail = () => {
                   backgroundImage:
                     "linear-gradient(315deg, #ff4e00 0%, #ec9f05 74%)",
                   border: "none",
+                  marginTop: "10px",
                 }}
               >
                 Proceed Checkout

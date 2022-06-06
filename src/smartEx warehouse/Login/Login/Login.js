@@ -12,7 +12,7 @@ import Loading from "../../Shared/Loading/Loading";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import axios from "axios";
 import "./Login.css";
 
 const Login = () => {
@@ -25,11 +25,11 @@ const Login = () => {
 
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
-
-  if (user) {
-    navigate(from, { replace: true });
-  }
   let errorElement;
+  if (user) {
+    console.log(user);
+  }
+
   if (error) {
     errorElement = (
       <div>
@@ -43,12 +43,18 @@ const Login = () => {
     return <Loading></Loading>;
   }
 
-  const handleLogin = (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
 
-    signInWithEmailAndPassword(email, password);
+    await signInWithEmailAndPassword(email, password);
+    const { data } = await axios.post(
+      "https://young-taiga-28195.herokuapp.com/login",
+      { email }
+    );
+    localStorage.setItem("accessToken", data.accessToken);
+    navigate(from, { replace: true });
   };
 
   const navigateSignUp = (event) => {
@@ -65,8 +71,8 @@ const Login = () => {
     }
   };
   return (
-    <div className="container w-50 mx-auto mt-4 row">
-      <div className="">
+    <div className="container w-75 mx-auto mt-4 row">
+      <div className="col-xs-12 col-sm-12 col-12">
         <Form
           onSubmit={handleLogin}
           className="rounded p-5"
@@ -91,6 +97,7 @@ const Login = () => {
               required
             />
           </Form.Group>
+          {errorElement}
 
           <Button
             style={{
@@ -106,7 +113,7 @@ const Login = () => {
           <Button onClick={navigateSignUp} variant="danger" type="submit">
             Create an new account
           </Button>
-          {errorElement}
+
           <p>
             Forget Password?
             <button
@@ -116,6 +123,7 @@ const Login = () => {
               Reset Pasword
             </button>
           </p>
+
           <SocialLogin></SocialLogin>
           <ToastContainer />
         </Form>

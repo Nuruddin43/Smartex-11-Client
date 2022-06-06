@@ -9,15 +9,19 @@ const Order = () => {
   useEffect(() => {
     const getOrders = async () => {
       const email = user.email;
-      const url = `http://localhost:5000/order?email=${email}`;
-      const { data } = await axios.get(url);
+      const url = `https://young-taiga-28195.herokuapp.com/order?email=${email}`;
+      const { data } = await axios.get(url, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      });
       setOrders(data);
     };
     getOrders();
   }, [user]);
   return (
-    <div>
-      <h2 className="text-white">Your Orders: {orders.length}</h2>
+    <div className="w-50 bg-light mx-auto mt-4 rounded">
+      <h2 className="text-dark text-center">Your Orders: {orders.length}</h2>
     </div>
   );
 };

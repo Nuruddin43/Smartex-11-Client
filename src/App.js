@@ -16,6 +16,7 @@ import ManageInventories from "./smartEx warehouse/ManageInventories/ManageInven
 import Allitem from "./smartEx warehouse/Allitem/Allitem";
 import MyItem from "./smartEx warehouse/MyItem/MyItem";
 import Order from "./smartEx warehouse/Order/Order";
+import About from "./smartEx warehouse/About/About";
 
 function App() {
   return (
@@ -30,14 +31,7 @@ function App() {
             </ProtectedRoute>
           }
         ></Route>
-        <Route
-          path="/home"
-          element={
-            <ProtectedRoute>
-              <Home></Home>
-            </ProtectedRoute>
-          }
-        ></Route>
+        <Route path="/home" element={<Home></Home>}></Route>
         <Route
           path="/product/:productId"
           element={<ProductDetail></ProductDetail>}
@@ -46,6 +40,7 @@ function App() {
         <Route path="/myitem" element={<MyItem></MyItem>}></Route>
 
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
+        <Route path="/about" element={<About></About>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
         <Route

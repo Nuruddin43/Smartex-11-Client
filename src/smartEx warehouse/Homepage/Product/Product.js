@@ -20,10 +20,11 @@ const Product = ({ product }) => {
       <img src={img} alt="" />
       <h2>{name}</h2>
       <p>Price: ${price}</p>
+
       <p>
         <small>{description}</small>
       </p>
-      <p>Quantity: {Quantity}</p>
+      <p>Qantity: {Quantity}</p>
       <p>Supplier Name: {SupplierName}</p>
       <Button
         onClick={() => productDetailNavigate(_id)}

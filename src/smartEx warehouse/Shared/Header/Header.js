@@ -47,6 +47,9 @@ const Header = () => {
               <Nav.Link as={Link} to="blogs">
                 Blogs
               </Nav.Link>
+              <Nav.Link as={Link} to="about">
+                About
+              </Nav.Link>
 
               {user && (
                 <>
@@ -56,18 +59,16 @@ const Header = () => {
                   <Nav.Link as={Link} to="orders">
                     Orders
                   </Nav.Link>
-                  {/* <Nav.Link as={Link} to="manage">
-                    Manage Inv
-                  </Nav.Link> */}
+
                   <NavDropdown
                     title="Manage Inventories"
                     id="collasible-nav-dropdown"
                   >
                     <NavDropdown.Item as={Link} to="manage">
-                      Manage Item
+                      Manage Inventories
                     </NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="allitem">
-                      All Item
+                      All Inventories
                     </NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="myitem">
                       My Item
