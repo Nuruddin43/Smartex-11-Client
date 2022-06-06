@@ -34,7 +34,7 @@ const NewProducts = () => {
       id: 4,
       price: 200,
       discountPrice: 160,
-      name: "HAELOU LS04",
+      name: "HAELOUU LS04",
       img: NewProduct4,
     },
     {
