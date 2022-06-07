@@ -2,12 +2,12 @@
 
 Live link: (https://smartex-warehouse-d71ac.web.app/login).
 
-## I am created a invenories website from Reactjs. We are doing frontEnd and backEnd work there. I Couldn't do some task but I tried.
+## I am created a invenories website from Reactjs. We are doing frontEnd and backEnd work there.
 
 
-### • create-react-app a project and set component
-### • added react router dom, react firebase hook, react hook form and react toastify
+### • It's a warehouse website
+### • Use react router dom, react firebase hook, react hook form and others
 ### • css framework react boostrap and bootstrap use
-### • install firebase and created authentication and deploy file
-### • install backEnd node, express, mongodb and dotenv
-### • install heroku and backend server deploy
+### • install firebase and created authentication system
+### • implemented JWT to secure the website
+### • optimized responsive approach
